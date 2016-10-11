@@ -41,6 +41,9 @@ Then give the spriter the array of images to load.
 
 `spriter.loadSprites(testImages);`
 
+The images may not instantly load, as they may be quite large. Before drawing any images, use the `checkLoad` function to ensure all images are loaded. You probably want this in a loop.
+`spriter.checkLoaded()`
+
 Now, during your animation frame, you can call the following to draw your sprite of choice. (pass the name you initially gave in the array of the images to call that exact sprite).
 
 ```
