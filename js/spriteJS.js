@@ -29,7 +29,8 @@ class Spriter {
         "timing": spritelist[i].timing,
         "lastupdate": time,
         "currX": 0,
-        "currY": 0
+        "currY": 0,
+        "multiline" : spritelist[i].multiline
       });
       image.onload = function() {
         console.log("loaded!");
@@ -59,7 +60,17 @@ class Spriter {
       this.sprites[num].lastupdate = now;
       this.sprites[num].currX += sprite.width;
       if (this.sprites[num].currX >= this.sprites[num].maxwidth) {
-        this.sprites[num].currX = 0;
+        if (this.sprites[num].multiline) {
+          if (this.sprites[num].currY + this.sprites[num].height >= this.sprites[num].maxheight) {
+            this.sprites[num].currX = 0;
+            this.sprites[num].currY = 0;
+          } else {
+            this.sprites[num].currX = 0;
+            this.sprites[num].currY += this.sprites[num].height;
+          }
+        } else {
+          this.sprites[num].currX = 0;
+        }
       }
     }
     return ({"image": this.sprites[num].image, "x": this.sprites[num].currX, "y": this.sprites[num].currY, "width": this.sprites[num].width, "height": this.sprites[num].height});

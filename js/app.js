@@ -16,7 +16,9 @@ var posData = [
   ["explosion", c.width / 2, c.height / 2],
   ["ball", 600, 300],
   ["homer", 100, 100],
-  ["lisa", 700, 300]
+  ["lisa", 700, 300],
+  ["smallgirl", 800, 100],
+  ["runguy", 300, 200]
 ];
 
 var explMove = [15, 15];
@@ -31,7 +33,8 @@ var testImages = [
     "height" : 320,
     "mWidth" : 1472,
     "mHeight" : 325,
-    "timing" : 100
+    "timing" : 100,
+    "multiline" : false
   },
   {
     "name" : "explosion",
@@ -40,7 +43,8 @@ var testImages = [
     "height" : 195,
     "mWidth" : 4800,
     "mHeight" : 195,
-    "timing" : 50
+    "timing" : 50,
+    "multiline" : false
   },
   {
     "name" : "ball",
@@ -49,7 +53,8 @@ var testImages = [
     "height" : 400,
     "mWidth" : 2400,
     "mHeight" : 400,
-    "timing" : 100
+    "timing" : 100,
+    "multiline" : false
   },
   {
     "name" : "homer",
@@ -58,7 +63,8 @@ var testImages = [
     "height" : 66,
     "mWidth" : 334,
     "mHeight" : 66,
-    "timing" : 100
+    "timing" : 100,
+    "multiline" : false
   },
   {
     "name" : "lisa",
@@ -67,7 +73,28 @@ var testImages = [
     "height" : 48,
     "mWidth" : 328,
     "mHeight" : 48,
-    "timing" : 100
+    "timing" : 100,
+    "multiline" : false
+  },
+  {
+    "name" : "smallgirl",
+    "image" : "https://openclipart.org/image/2400px/svg_to_png/248088/WalkingGirl.png",
+    "width" : 600,
+    "height" : 698,
+    "mWidth" : 2400,
+    "mHeight" : 698,
+    "timing" : 300,
+    "multiline" : false
+  },
+  {
+    "name" : "runguy",
+    "image" : "http://i.imgur.com/BRMnNWK.png",
+    "width" : 240,
+    "height" : 296,
+    "mWidth" : 1440,
+    "mHeight" : 1480,
+    "timing" : 30,
+    "multiline" : true
   }
 ];
 
