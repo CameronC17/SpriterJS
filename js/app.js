@@ -18,7 +18,9 @@ var posData = [
   ["homer", 100, 100],
   ["lisa", 700, 300],
   ["smallgirl", 800, 100],
-  ["runguy", 300, 200]
+  ["runguy", 300, 200],
+  ["topguy", 500, 500],
+  ["randomcat", 600, 10]
 ];
 
 var explMove = [15, 15];
@@ -94,6 +96,26 @@ var testImages = [
     "mWidth" : 1440,
     "mHeight" : 1480,
     "timing" : 30,
+    "multiline" : true
+  },
+  {
+    "name" : "topguy",
+    "image" : "https://s-media-cache-ak0.pinimg.com/originals/b9/f5/1d/b9f51d8e41dbb11e3d1459ee1e03f846.png",
+    "width" : 32,
+    "height" : 32,
+    "mWidth" : 384,
+    "mHeight" : 256,
+    "timing" : 100,
+    "multiline" : true
+  },
+  {
+    "name" : "randomcat",
+    "image" : "http://i.imgur.com/LBY8Pvx.jpg",
+    "width" : 171,
+    "height" : 86,
+    "mWidth" : 2052,
+    "mHeight" : 946,
+    "timing" : 60,
     "multiline" : true
   }
 ];
