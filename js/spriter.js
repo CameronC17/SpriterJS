@@ -38,12 +38,20 @@ class Spriter {
     }
   }
 
+  //gets a sprite based on a name
   getSprite(name) {
     var spriteID = this.sprites.map(function(e) { return e.name; }).indexOf(name);
-    var retSprite = this.checkUpdate(spriteID);
-    return retSprite;
+    if (spriteID > -1) {
+      var retSprite = this.checkUpdate(spriteID);
+      return retSprite;
+    } else {
+      console.log("Unable to draw sprite: " + name);
+      return null;
+    }
+
   }
 
+  //moves the sprites animation
   checkUpdate(num) {
     var sprite = this.sprites[num];
     var now = new Date().getTime();
@@ -55,30 +63,6 @@ class Spriter {
       }
     }
     return ({"image": this.sprites[num].image, "x": this.sprites[num].currX, "y": this.sprites[num].currY, "width": this.sprites[num].width, "height": this.sprites[num].height});
-  }
-
-  //returns all of the sprites
-  getSprites() {
-    return this.checkUpdates();
-  }
-
-  checkUpdates() {
-    var newSprites = [];
-    for (var i = 0; i < this.sprites.length; i++) {
-      var sprite = this.sprites[i];
-      var now = new Date().getTime();
-      if (now >= sprite.lastupdate + sprite.timing) {
-        this.sprites[i].lastupdate = now;
-        this.sprites[i].currX += sprite.width;
-        if (this.sprites[i].currX >= this.sprites[i].maxwidth) {
-          this.sprites[i].currX = 0;
-        }
-      }
-      sprite = this.sprites[i];
-      newSprites.push({"image": sprite.image, "x": sprite.currX, "y": sprite.currY, "width": sprite.width, "height": sprite.height});
-    }
-
-    return newSprites;
   }
 
   //check if all sprites loaded

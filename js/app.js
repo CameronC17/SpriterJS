@@ -5,15 +5,18 @@ var c = document.getElementById("canvas");
 var ctx = c.getContext("2d");
 
 var loaded = false;
+var gameTick = 50;
+
+var test = false;
 
 //GAME DATA
 
-var man = {
-  "x" : 200,
-  "y" : 200
-}
+var posData = [
+  ["man", -200, c.height - 320],
+  ["explosion", c.width / 2, c.height / 2]
+];
 
-
+var explMove = [15, 15];
 
 //send: {image, width, height, timing}
 
@@ -47,10 +50,8 @@ function mainLoop() {
     drawBackground();
     checkLoad();
   } else {
-    //drawSprites();
-    drawSprite();
+    drawSprites();
   }
-
 }
 
 function drawBackground() {
@@ -70,21 +71,12 @@ function checkLoad() {
 }
 
 function drawSprites() {
-  var localX = 300,
-      localY = 300;
-  var sprites = spriter.getSprites();
-  for (var i = 0; i < sprites.length; i++) {
-    ctx.drawImage(sprites[i].image,sprites[i].x,sprites[i].y,sprites[i].width,sprites[i].height,localX,localY,sprites[i].width,sprites[i].height);
+  for (var i = 0; i < posData.length; i++) {
+    var sprite = spriter.getSprite(posData[i][0]);
+    if (sprite != null) {
+      ctx.drawImage(sprite.image,sprite.x,sprite.y,sprite.width,sprite.height,posData[i][1],posData[i][2],sprite.width,sprite.height);
+    }
   }
-}
-
-function drawSprite() {
-  drawMan();
-}
-
-function drawMan() {
-  var sprite = spriter.getSprite("man");
-  ctx.drawImage(sprite.image,sprite.x,sprite.y,sprite.width,sprite.height,man.x,man.y,sprite.width,sprite.height);
 }
 
 function clearScreen() {
@@ -98,3 +90,31 @@ var recursiveAnim = function() {
           animFrame(recursiveAnim);
     };
 animFrame(recursiveAnim);
+
+//game engine #####################################
+function game() {
+  moveMan();
+  moveExplosion();
+
+
+	setTimeout(function () {
+		game();
+  }, gameTick);
+}
+game();
+
+function moveMan() {
+  posData[0][1]+=10;
+  if (posData[0][1] > c.width)
+    posData[0][1] = -200;
+}
+
+function moveExplosion() {
+  posData[1][1]+=explMove[0];
+  posData[1][2]+=explMove[1];
+  if (posData[1][1] + 192 > c.width || posData[1][1] < 0)
+    explMove[0] *= -1;
+  if (posData[1][2] + 195 > c.height || posData[1][2] < 0)
+    explMove[1] *= -1;
+
+}
