@@ -15,7 +15,8 @@ var posData = [
   ["man", -200, c.height - 320],
   ["explosion", c.width / 2, c.height / 2],
   ["ball", 600, 300],
-  ["homer", 100, 100]
+  ["homer", 100, 100],
+  ["lisa", 700, 300]
 ];
 
 var explMove = [15, 15];
@@ -57,6 +58,15 @@ var testImages = [
     "height" : 66,
     "mWidth" : 334,
     "mHeight" : 66,
+    "timing" : 100
+  },
+  {
+    "name" : "lisa",
+    "image" : "http://i.imgur.com/vCc74kC.png",
+    "width" : 41,
+    "height" : 48,
+    "mWidth" : 328,
+    "mHeight" : 48,
     "timing" : 100
   }
 ];
