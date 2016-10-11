@@ -13,7 +13,9 @@ var test = false;
 
 var posData = [
   ["man", -200, c.height - 320],
-  ["explosion", c.width / 2, c.height / 2]
+  ["explosion", c.width / 2, c.height / 2],
+  ["ball", 600, 300],
+  ["homer", 100, 100]
 ];
 
 var explMove = [15, 15];
@@ -38,6 +40,24 @@ var testImages = [
     "mWidth" : 4800,
     "mHeight" : 195,
     "timing" : 50
+  },
+  {
+    "name" : "ball",
+    "image" : "https://openclipart.org/image/2400px/svg_to_png/222581/basketball-css-spritesheet.png",
+    "width" : 400,
+    "height" : 400,
+    "mWidth" : 2400,
+    "mHeight" : 400,
+    "timing" : 100
+  },
+  {
+    "name" : "homer",
+    "image" : "http://i.imgur.com/6gppwMd.png",
+    "width" : 37,
+    "height" : 66,
+    "mWidth" : 334,
+    "mHeight" : 66,
+    "timing" : 100
   }
 ];
 
