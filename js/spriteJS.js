@@ -30,7 +30,8 @@ class Spriter {
         "lastupdate": time,
         "currX": 0,
         "currY": 0,
-        "multiline" : spritelist[i].multiline
+        "multiline" : spritelist[i].multiline,
+        "animate" : false
       });
       image.onload = function() {
         console.log("loaded!");
@@ -56,7 +57,7 @@ class Spriter {
   checkUpdate(num) {
     var sprite = this.sprites[num];
     var now = new Date().getTime();
-    if (now >= sprite.lastupdate + sprite.timing) {
+    if (now >= sprite.lastupdate + sprite.timing && sprite.animate) {
       this.sprites[num].lastupdate = now;
       this.sprites[num].currX += sprite.width;
       if (this.sprites[num].currX >= this.sprites[num].maxwidth) {
@@ -93,11 +94,21 @@ class Spriter {
         "lastupdate": time,
         "currX": 0,
         "currY": 0,
-        "multiline" : sprite.multiline
+        "multiline" : sprite.multiline,
+        "animate" : false
       }
       this.sprites.push(dupeSprite);
     } else {
       console.log("Unable to find sprite: " + curr + "   " + spriteID);
+    }
+  }
+
+  animate(sprite, option) {
+    var spriteID = this.sprites.map(function(e) { return e.name; }).indexOf(sprite);
+    if (spriteID > -1) {
+      this.sprites[spriteID].animate = option;
+    } else {
+      console.log("Unable to find sprite: " + sprite)
     }
   }
 

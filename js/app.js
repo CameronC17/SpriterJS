@@ -132,6 +132,7 @@ function mainLoop() {
     drawSprites();
     if (!test) {
       testDuplication();
+      spriter.animate("runguy2", true);
       test = true;
     }
   }
@@ -146,10 +147,13 @@ function checkLoad() {
   ctx.fillStyle="#ff0000";
   if (spriter.checkLoaded()) {
     loaded = true;
+    spriter.animate("runguy", true);
+    spriter.animate("explosion", true);
+    spriter.animate("man", true);
   }
   //var loadText = "LOADING";
   ctx.font="70px Arial";
-  ctx.fillText("LOADING", 500, 400);
+  ctx.fillText("LOADING", 440, 400);
   //ctx.fillText(loadText, c.width - (ctx.measureText(loadText).width / 2), c.height - (ctx.measureText(loadText).height / 2));
 }
 
@@ -168,7 +172,7 @@ function clearScreen() {
 }
 
 function testDuplication() {
-  var spriteToDupe = testImages[7].name;
+  var spriteToDupe = testImages[6].name;
   for (var i = 0; i < 3; i++) {
     var newName = spriteToDupe + (i + 2);
     //console.log(newName);
