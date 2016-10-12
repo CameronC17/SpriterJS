@@ -153,7 +153,7 @@ function checkLoad() {
   }
   //var loadText = "LOADING";
   ctx.font="70px Arial";
-  ctx.fillText("LOADING", 440, 400);
+  ctx.fillText("LOADING", 460, 400);
   //ctx.fillText(loadText, c.width - (ctx.measureText(loadText).width / 2), c.height - (ctx.measureText(loadText).height / 2));
 }
 
