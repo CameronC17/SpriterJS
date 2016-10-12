@@ -130,6 +130,10 @@ function mainLoop() {
     checkLoad();
   } else {
     drawSprites();
+    if (!test) {
+      testDuplication();
+      test = true;
+    }
   }
 }
 
@@ -161,6 +165,16 @@ function drawSprites() {
 function clearScreen() {
   ctx.fillStyle="#fff";
   ctx.fillRect(0, 0, c.width, c.height);
+}
+
+function testDuplication() {
+  var spriteToDupe = testImages[7].name;
+  for (var i = 0; i < 3; i++) {
+    var newName = spriteToDupe + (i + 2);
+    //console.log(newName);
+    posData.push([newName, Math.floor(Math.random() * c.width) + 0, Math.floor(Math.random() * c.height) + 0]);
+    spriter.duplicateSprite(spriteToDupe, newName);
+  }
 }
 
 //This loops the animation frames for animation!!!!
