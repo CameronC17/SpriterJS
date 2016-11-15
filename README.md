@@ -1,8 +1,8 @@
 # SpriterJS
 
-Welcome to spriteJS.
+Welcome to spriterJS.
 
-To use spriteJS, first include `sprite.js` above all of your js files in the HTML.
+To use spriterJS, first include `spriteJS.js` above all of your js files in the HTML.
 
 `<script type="text/javascript" src="js/spriteJS.js"></script>`
 
