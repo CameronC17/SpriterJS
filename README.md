@@ -68,3 +68,28 @@ To duplicate any sprite, call the following function. The first parameter should
 
 `spriter.duplicateSprite("SPRITE_TO_DUPLICATE", "SPRITE2");`
 
+
+//////////////////////////
+
+If you have a sprite that uses differen lines for different animations, you can set the sprite to draw these different lines in animation. To tell spriter how many sprites are on each line, add the following multisheet line to your sprite when loading it into spriter:
+
+```
+{
+    "name" : "spritegradient",
+    "image" : "http://i.imgur.com/y7f1519.png",
+    "width" : 40,
+    "height" : 40,
+    "mWidth" : 400,
+    "mHeight" : 400,
+    "timing" : 50,
+    "multisheet": [
+      {"name": "one", "yPos": 0, "slides": 7},
+      {"name": "two", "yPos": 40, "slides": 4},
+      {"name": "three", "yPos": 80, "slides": 6}
+    ]
+  }
+```
+
+And then change what animation you want to do based on the name you have given it when loading it by doing the following:
+
+`spriter.changeAnimation("spritegradient", "NEW_EXAMPLE_ANIMATION_LINE);`
