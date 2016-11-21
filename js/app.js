@@ -20,7 +20,8 @@ var posData = [
   ["smallgirl", 800, 100],
   ["runguy", 300, 200],
   ["topguy", 500, 500],
-  ["randomcat", 600, 10]
+  ["randomcat", 600, 10],
+  ["spritegradient", 200, 200]
 ];
 
 var explMove = [15, 15];
@@ -35,8 +36,7 @@ var testImages = [
     "height" : 320,
     "mWidth" : 1472,
     "mHeight" : 325,
-    "timing" : 100,
-    "multiline" : false
+    "timing" : 100
   },
   {
     "name" : "explosion",
@@ -45,8 +45,7 @@ var testImages = [
     "height" : 195,
     "mWidth" : 4800,
     "mHeight" : 195,
-    "timing" : 50,
-    "multiline" : false
+    "timing" : 50
   },
   {
     "name" : "ball",
@@ -55,8 +54,7 @@ var testImages = [
     "height" : 400,
     "mWidth" : 2400,
     "mHeight" : 400,
-    "timing" : 100,
-    "multiline" : false
+    "timing" : 100
   },
   {
     "name" : "homer",
@@ -65,8 +63,7 @@ var testImages = [
     "height" : 66,
     "mWidth" : 334,
     "mHeight" : 66,
-    "timing" : 100,
-    "multiline" : false
+    "timing" : 100
   },
   {
     "name" : "lisa",
@@ -75,8 +72,7 @@ var testImages = [
     "height" : 48,
     "mWidth" : 328,
     "mHeight" : 48,
-    "timing" : 100,
-    "multiline" : false
+    "timing" : 100
   },
   {
     "name" : "smallgirl",
@@ -85,8 +81,7 @@ var testImages = [
     "height" : 698,
     "mWidth" : 2400,
     "mHeight" : 698,
-    "timing" : 300,
-    "multiline" : false
+    "timing" : 300
   },
   {
     "name" : "runguy",
@@ -117,6 +112,20 @@ var testImages = [
     "mHeight" : 946,
     "timing" : 60,
     "multiline" : true
+  },
+  {
+    "name" : "spritegradient",
+    "image" : "http://i.imgur.com/y7f1519.png",
+    "width" : 40,
+    "height" : 40,
+    "mWidth" : 400,
+    "mHeight" : 400,
+    "timing" : 50,
+    "multisheet": [
+      {"name": "one", "yPos": 0, "slides": 7},
+      {"name": "two", "yPos": 40, "slides": 4},
+      {"name": "three", "yPos": 80, "slides": 6}
+    ]
   }
 ];
 
@@ -150,6 +159,7 @@ function checkLoad() {
     spriter.animate("runguy", true);
     spriter.animate("explosion", true);
     spriter.animate("man", true);
+    spriter.animate("spritegradient", true);
   }
   //var loadText = "LOADING";
   ctx.font="70px Arial";
@@ -200,10 +210,16 @@ function game() {
 }
 game();
 
+var testAnimationChange = ["two", "three", "one"];
+
 function moveMan() {
   posData[0][1]+=10;
-  if (posData[0][1] > c.width)
+  if (posData[0][1] > c.width) {
     posData[0][1] = -200;
+    spriter.changeAnimation("spritegradient", testAnimationChange[0]);
+    testAnimationChange.push(testAnimationChange[0]);
+    testAnimationChange.splice(0, 1);
+  }
 }
 
 function moveExplosion() {

@@ -31,7 +31,9 @@ class Spriter {
         "currX": 0,
         "currY": 0,
         "multiline" : spritelist[i].multiline,
-        "animate" : false
+        "multisheet" : spritelist[i].multisheet,
+        "animate" : false,
+        "currentAnimation" : 0
       });
       image.onload = function() {
         console.log("loaded!");
@@ -50,7 +52,17 @@ class Spriter {
       console.log("Unable to find sprite: " + name);
       return null;
     }
+  }
 
+  changeAnimation(sprite, animationName) {
+    var spriteID = this.sprites.map(function(e) { return e.name; }).indexOf(sprite);
+    if (spriteID > -1) {
+      var newAnimationIndex = this.sprites[spriteID].multisheet.map(function(e) { return e.name; }).indexOf(animationName);
+      if (newAnimationIndex > -1)
+        this.sprites[spriteID].currentAnimation = newAnimationIndex;
+    } else {
+      console.log("Unable to find sprite: " + sprite);
+    }
   }
 
   //moves the sprites animation
@@ -60,7 +72,12 @@ class Spriter {
     if (now >= sprite.lastupdate + sprite.timing && sprite.animate) {
       this.sprites[num].lastupdate = now;
       this.sprites[num].currX += sprite.width;
-      if (this.sprites[num].currX >= this.sprites[num].maxwidth) {
+      if (this.sprites[num].multisheet) {
+        var currSlide = Math.floor(sprite.currX / sprite.width);
+        if (currSlide >= sprite.multisheet[sprite.currentAnimation].slides)
+          sprite.currX = 0;
+        sprite.currY = sprite.multisheet[sprite.currentAnimation].yPos;
+      } else if (this.sprites[num].currX >= this.sprites[num].maxwidth) {
         if (this.sprites[num].multiline) {
           if (this.sprites[num].currY + this.sprites[num].height >= this.sprites[num].maxheight) {
             this.sprites[num].currX = 0;
