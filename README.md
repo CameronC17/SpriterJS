@@ -83,13 +83,13 @@ If you have a sprite that uses differen lines for different animations, you can 
     "mHeight" : 400,
     "timing" : 50,
     "multisheet": [
-      {"name": "one", "yPos": 0, "slides": 7},
-      {"name": "two", "yPos": 40, "slides": 4},
-      {"name": "three", "yPos": 80, "slides": 6}
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_ONE", "yPos": 0, "slides": 7},
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_TWO", "yPos": 40, "slides": 4},
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_THREE", "yPos": 80, "slides": 6}
     ]
   }
 ```
 
 And then change what animation you want to do based on the name you have given it when loading it by doing the following:
 
-`spriter.changeAnimation("spritegradient", "NEW_EXAMPLE_ANIMATION_LINE);`
+`spriter.changeAnimation("spritegradient", "NEW_EXAMPLE_ANIMATION_LINE");`
