@@ -83,9 +83,9 @@ If you have a sprite that uses differen lines for different animations, you can 
     "mHeight" : 400,
     "timing" : 50,
     "multisheet": [
-      {"name": "NEW_EXAMPLE_ANIMATION_LINE_ONE", "yPos": 0, "slides": 7},
-      {"name": "NEW_EXAMPLE_ANIMATION_LINE_TWO", "yPos": 40, "slides": 4},
-      {"name": "NEW_EXAMPLE_ANIMATION_LINE_THREE", "yPos": 80, "slides": 6}
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_ONE", "yPos": 0, "slides": 7, "timing": 100},
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_TWO", "yPos": 40, "slides": 4, "timing": 10},
+      {"name": "NEW_EXAMPLE_ANIMATION_LINE_THREE", "yPos": 80, "slides": 6, "timing": 500}
     ]
   }
 ```
