@@ -122,9 +122,9 @@ var testImages = [
     "mHeight" : 400,
     "timing" : 50,
     "multisheet": [
-      {"name": "one", "yPos": 0, "slides": 7},
-      {"name": "two", "yPos": 40, "slides": 4},
-      {"name": "three", "yPos": 80, "slides": 6}
+      {"name": "one", "yPos": 0, "slides": 7, "timing": 50},
+      {"name": "two", "yPos": 40, "slides": 4, "timing": 500},
+      {"name": "three", "yPos": 80, "slides": 6, "timing": 250}
     ]
   }
 ];

@@ -58,8 +58,10 @@ class Spriter {
     var spriteID = this.sprites.map(function(e) { return e.name; }).indexOf(sprite);
     if (spriteID > -1) {
       var newAnimationIndex = this.sprites[spriteID].multisheet.map(function(e) { return e.name; }).indexOf(animationName);
-      if (newAnimationIndex > -1)
+      if (newAnimationIndex > -1) {
         this.sprites[spriteID].currentAnimation = newAnimationIndex;
+        this.sprites[spriteID].timing = this.sprites[spriteID].multisheet[newAnimationIndex].timing;
+      }
     } else {
       console.log("Unable to find sprite: " + sprite);
     }
