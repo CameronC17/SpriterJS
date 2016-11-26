@@ -69,7 +69,7 @@ To duplicate any sprite, call the following function. The first parameter should
 `spriter.duplicateSprite("SPRITE_TO_DUPLICATE", "SPRITE2");`
 
 
-//////////////////////////
+##Multiple animations on one sheet
 
 If you have a sprite that uses differen lines for different animations, you can set the sprite to draw these different lines in animation. To tell spriter how many sprites are on each line, add the following multisheet line to your sprite when loading it into spriter:
 
