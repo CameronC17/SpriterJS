@@ -51,11 +51,9 @@ Now, during your animation frame, you can call the following to draw your sprite
 
 ```
 var sprite = spriter.getSprite("man");
-ctx.drawImage(sprite.image,sprite.x,sprite.y,sprite.width,sprite.height,posData[i][1],posData[i][2],sprite.width,sprite.height);
+ctx.drawImage(sprite.image,sprite.x,sprite.y,sprite.width,sprite.height,SPRITE_SCREEN_X_POS,SPRITE_SCREEN_Y_POS,sprite.width,sprite.height);
     
 ```
-
-///////////////////////////
 
 If your sprite is multiline, you can set `"multiline" : true`. The framework will be able to progress through each frame in your spritesheet.
 
@@ -71,7 +69,7 @@ To duplicate any sprite, call the following function. The first parameter should
 
 ##Multiple animations on one sheet
 
-If you have a sprite that uses differen lines for different animations, you can set the sprite to draw these different lines in animation. To tell spriter how many sprites are on each line, add the following multisheet line to your sprite when loading it into spriter:
+If you have a sprite that uses differen lines for different animations, you can set the sprite to draw these different lines in animation (NB: This is not possible on single animation multiline sheets). To tell spriter how many sprites are on each line, add the following multisheet line to your sprite when loading it into spriter:
 
 ```
 {
